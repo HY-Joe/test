@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8" />
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-  google.charts.load('current', { packages: ['corechart'] }).then(function () {
-    var query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=1GPX6oabktER0LdBt3NDraVw9oxbatfFn9JyVaeKITf0&pub=1');
-    query.send(function (response) {            
-    var dataTable = response.getDataTable();
-    var jsonData = dataTable.toJSON();            
-    jsonData = JSON.parse(jsonData);
-  
-    for(var i=0; i < jsonData.rows.length; i++) {
-      var htmlData = "";
-      htmlData += "<li>" + jsonData.rows[i].c[0].v + "</li>";
-      $(".list ul").append(htmlData);  // 데이터를 뿌려준다
-      console.log(jsonData.rows[i].c[0].v);          
-    }
-    });
+<html>
+    <head>
+        <title>test</title>
+    </head>
+    <body>
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', { packages: ['corechart'] }).then(function () {
+  var query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=1GPX6oabktER0LdBt3NDraVw9oxbatfFn9JyVaeKITf0&pub=1');
+  query.send(function (response) {            
+  var dataTable = response.getDataTable();
+  var jsonData = dataTable.toJSON();            
+  jsonData = JSON.parse(jsonData);
+
+  for(var i=0; i < jsonData.rows.length; i++) {
+    var htmlData = "";
+    htmlData += "<li>" + jsonData.rows[i].c[0].v + "</li>";
+    $(".list ul").append(htmlData);  // 데이터를 뿌려준다
+    console.log(jsonData.rows[i].c[0].v);          
+  }
   });
-  </script>
-
-  <title>wonjin Lab :: GshReader</title>
-</head>
-
-<body>
-
-
+});
+</script>
 
 <div class="list">
   <ul>
 	<!-- 데이터 리스트 -->
   </ul>
 </div>
-</body>
+    </body>
+</html>
