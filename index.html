@@ -20,7 +20,7 @@ google.charts.load('current', { packages: ['corechart'] }).then(function () {
     $(".list ul").append(htmlData);  // 데이터를 뿌려준다
     console.log(jsonData.rows[i].c[0].v);     
     
-    var src = 'https://drive.google.com/uc?export=view&id=' + jsonData.rows[i].c[3].v,
+    var src = 'https://drive.google.com/thumbnail?id=' + jsonData.rows[i].c[3].v,
         img = document.createElement('img');
 
         img.src = src;
