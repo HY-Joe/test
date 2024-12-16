@@ -16,7 +16,7 @@ google.charts.load('current', { packages: ['corechart'] }).then(function () {
 
   for(var i=0; i < jsonData.rows.length; i++) {
     var htmlData = "";
-    htmlData += "<li>" + jsonData.rows[i].c[0].v + "</li>";
+    htmlData += "<li>" + jsonData.rows[i].c[0].v + ": "+ jsonData.rows[i].c[1].v + "</li>";
     $(".list ul").append(htmlData);  // 데이터를 뿌려준다
     console.log(jsonData.rows[i].c[0].v);          
   }
