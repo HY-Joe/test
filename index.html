@@ -4,7 +4,6 @@
         <title>test</title>
     </head>
     <body>
-	    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 google.charts.load('current', { packages: ['corechart'] }).then(function () {
@@ -18,7 +17,13 @@ google.charts.load('current', { packages: ['corechart'] }).then(function () {
     var htmlData = "";
     htmlData += "<li>" + jsonData.rows[i].c[0].v + ": "+ jsonData.rows[i].c[1].v + "</li>";
     $(".list ul").append(htmlData);  // 데이터를 뿌려준다
-    console.log(jsonData.rows[i].c[0].v);          
+    console.log(jsonData.rows[i].c[0].v);     
+    
+    var src = 'https://drive.google.com/uc?export=view&id=' + jsonData.rows[i].c[3].v,
+        img = document.createElement('img');
+
+        img.src = src;
+        document.body.appendChild(img);
   }
   });
 });
